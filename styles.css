@@ -91,3 +91,35 @@ footer {
     height: auto;
 }
 
+.produto-detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.produto-img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.info {
+    max-width: 400px;
+    margin-left: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #8B5E3C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #6A3F2A;
+}

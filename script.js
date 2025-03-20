@@ -50,3 +50,10 @@ document.querySelector(".topo").addEventListener("click", function(e) {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+function adicionarAoCarrinho() {
+    let cor = document.getElementById("cor").value;
+    let tamanho = document.getElementById("tamanho").value;
+
+    alert(`Produto adicionado ao carrinho:\nCamiseta UFO\nCor: ${cor}\nTamanho: ${tamanho}`);
+}
