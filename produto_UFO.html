@@ -10,10 +10,14 @@
 <body>
     <header>
         <a href="index.html"><img src="img/logo.png" alt="Ducarm Logo" class="logo"></a>
+        <!-- Botão Home (ícone de casa) -->
+        <button id="home-btn" class="home-btn" onclick="voltarParaHome()">
+            <img src="img/home.png" alt="Ícone Home" class="home-icon">
+        </button>
     </header>
 
     <main class="produto-detalhes">
-        <img src="img/produto1.png" alt="Camiseta UFO" class="produto-img">
+        <img src="img/produto_bege.png" alt="Camiseta UFO" class="produto-img" id="produto-img">
         <div class="info">
             <h2>Camiseta Oversized - UFO</h2>
             <p>Descrição: Camiseta oversized de alta qualidade, com estampa exclusiva UFO.</p>
@@ -26,7 +30,7 @@
                 <option value="preto">Preto</option>
                 <option value="verde-musgo">Verde Musgo</option>
             </select>
-
+            
             <label for="tamanho">Escolha o tamanho:</label>
             <select id="tamanho">
                 <option value="P">P</option>
@@ -42,5 +46,50 @@
     <footer>
         <p>Ducarm2025© - Todos os direitos reservados</p>
     </footer>
+
+    <script>
+        // Função para mudar a imagem do produto conforme a cor selecionada ou ao passar o mouse
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectCor = document.getElementById("cor");
+            const imgProduto = document.getElementById("produto-img");
+
+            // Mapeamento de cores para imagens correspondentes
+            const imagens = {
+                "bege": "img/produto_bege.png",
+                "off-white": "img/produto_off-white.png",
+                "preto": "img/produto_preto.png",
+                "verde-musgo": "img/produto_verde-musgo.png"
+            };
+
+            // Evento para mudança de imagem ao passar o mouse
+            const opcoesCor = document.querySelectorAll("#cor option");
+
+            opcoesCor.forEach((opcao) => {
+                opcao.addEventListener("mouseover", function () {
+                    const corSelecionada = opcao.value;
+                    imgProduto.src = imagens[corSelecionada] || "img/produto_bege.png"; // Imagem padrão se não encontrar
+                });
+            });
+
+            // Evento para mudança de imagem ao selecionar a cor
+            selectCor.addEventListener("change", function () {
+                const corSelecionada = selectCor.value;
+                imgProduto.src = imagens[corSelecionada] || "img/produto_bege.png"; // Imagem padrão se não encontrar
+            });
+        });
+
+        // Função de adicionar ao carrinho
+        function adicionarAoCarrinho() {
+            let cor = document.getElementById("cor").value;
+            let tamanho = document.getElementById("tamanho").value;
+
+            alert(`Produto adicionado ao carrinho:\nCamiseta UFO\nCor: ${cor}\nTamanho: ${tamanho}`);
+        }
+
+        // Função para voltar à página inicial
+        function voltarParaHome() {
+            window.location.href = "index.html"; // Redireciona para a página inicial
+        }
+    </script>
 </body>
 </html>

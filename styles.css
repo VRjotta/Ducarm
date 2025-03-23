@@ -10,10 +10,27 @@ header {
     background-color: #8B5E3C;
     padding: 15px;
     text-align: center;
+    position: relative;
 }
 
 .logo {
     width: 250px;
+}
+
+/* Estilizando o botão de home */
+.home-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #5A3E2B;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.home-btn:hover {
+    color: #8B5E3C;
 }
 
 .sidebar {
@@ -122,4 +139,23 @@ footer {
 
 .btn:hover {
     background-color: #6A3F2A;
+}
+
+.home-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+
+.home-icon {
+    width: 50px; /* Diminua o valor aqui para um ícone menor */
+    height: auto; /* A altura será ajustada automaticamente para manter a proporção */
+}
+
+/* Opcional: efeito de hover para o ícone */
+.home-btn:hover .home-icon {
+    opacity: 0.8; /* Leve diminuição de opacidade ao passar o mouse */
 }

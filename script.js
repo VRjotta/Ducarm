@@ -1,7 +1,7 @@
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 // Adiciona um produto ao carrinho
-function adicionarAoCarrinho(nome, preco, cor, tamanho) {
+function adicionarAoCarrinhoProduto(nome, preco, cor, tamanho) {
     let item = { nome, preco, cor, tamanho };
     carrinho.push(item);
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
@@ -38,7 +38,7 @@ document.querySelectorAll(".btn-add-carrinho").forEach(botao => {
         let preco = parseFloat(this.getAttribute("data-preco"));
         let cor = document.querySelector("#selecao-cor").value;
         let tamanho = document.querySelector("#selecao-tamanho").value;
-        adicionarAoCarrinho(nome, preco, cor, tamanho);
+        adicionarAoCarrinhoProduto(nome, preco, cor, tamanho);
     });
 });
 
@@ -51,9 +51,28 @@ document.querySelector(".topo").addEventListener("click", function(e) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-function adicionarAoCarrinho() {
+// Função de adicionar ao carrinho (alerta)
+function adicionarAoCarrinhoAlerta() {
     let cor = document.getElementById("cor").value;
     let tamanho = document.getElementById("tamanho").value;
 
     alert(`Produto adicionado ao carrinho:\nCamiseta UFO\nCor: ${cor}\nTamanho: ${tamanho}`);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectCor = document.getElementById("cor");
+    const imgProduto = document.getElementById("produto-img");
+
+    // Mapeamento de cores para imagens correspondentes
+    const imagens = {
+        "bege": "img/produto_bege.png",
+        "off-white": "img/produto_off-white.png",
+        "preto": "img/produto_preto.png",
+        "verde-musgo": "img/produto_verde-musgo.png"
+    };
+
+    selectCor.addEventListener("change", function () {
+        const corSelecionada = selectCor.value;
+        imgProduto.src = imagens[corSelecionada] || "img/produto_bege.png"; // Imagem padrão se não encontrar
+    });
+});
